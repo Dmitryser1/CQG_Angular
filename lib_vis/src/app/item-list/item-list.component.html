@@ -1,0 +1,9 @@
+<div>
+  <input type="text" [(ngModel)]="filterText" (input)="filterItems()" placeholder="Filter by name">
+  <button (click)="loadPackages()">Reload</button>
+</div>
+<div class="list">
+  <div *ngFor="let pkg of filteredItems">
+    <app-item-card [itemData]="pkg" [highlightedDependencies]="dependencies" (hover)="onHover($event)"></app-item-card>
+  </div>
+</div>

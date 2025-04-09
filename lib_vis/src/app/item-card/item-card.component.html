@@ -1,0 +1,10 @@
+<div class="card" *ngIf="itemData" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+    <div class="title" [ngClass]="{'highlighted': highlightedDependencies.includes(itemData.id)}">
+      <span class="scope" *ngIf="itemData.id.includes('/')">{{ itemData.id.split('/')[0] }}/</span>
+      <span>{{ itemData.id.split('/')[1] || itemData.id }}</span>
+    </div>
+    <div class="body">
+      <p>Downloads: {{ itemData.weeklyDownloads | formatNumber }}</p>
+      <p class="dep">{{ itemData.dependencyCount | formatNumber}} dependencies</p>
+    </div>
+  </div>
